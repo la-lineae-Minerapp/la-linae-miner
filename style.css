@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background 1s ease;
+}
+
+body.day-mode {
+    background: linear-gradient(to bottom, #87CEEB, #1E90FF, #001f3f);
+    color: #fff;
+}
+
+body.night-mode {
+    background: linear-gradient(to bottom, #0b1d3a, #040d1a, #00050d);
+    color: #ddd;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.jackpot-widget {
+    background: rgba(255, 215, 0, 0.2);
+    border: 2px solid gold;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.exchange-floor {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-top: 2px solid #00ffff;
+}
+
+.wallet-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 11px;
+}
+
+.wallet-box button {
+    background: #00ffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 3px;
+    color: #000;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.modal-content input {
+    padding: 8px;
+    margin: 10px 0;
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+}
