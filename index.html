@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lineae</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-wrapper">
+        <!-- تصویر اصلی بازی که تمام طبقات و دخترها داخلش هستند -->
+        <img src="1000154133.jpg" alt="La Lineae Game" class="game-image">
+
+        <!-- پنل صرافی و ولت‌ها که دقیقاً روی طبقه آخر و کنار دختر فیکس می‌شوند -->
+        <div class="overlay-exchange-panel">
+            <div class="rates-board">Live Exchange (0.50$) | USDT: 1.00 | TON: 5.20 | SUI: 1.80</div>
+            
+            <div class="wallet-row">
+                <span>USDT:</span>
+                <code>TC3PdXe5dD1rxBeUsF84QCpsPR9cPGsnsU</code>
+                <button onclick="copyToClipboard('TC3PdXe5dD1rxBeUsF84QCpsPR9cPGsnsU', this)">COPY</button>
+            </div>
+            <div class="wallet-row">
+                <span>TON:</span>
+                <code>UQAs7GN-XXXQTdiIckg4cIOeEeWEjFvhCvy3QjDem2u-dAWK</code>
+                <button onclick="copyToClipboard('UQAs7GN-XXXQTdiIckg4cIOeEeWEjFvhCvy3QjDem2u-dAWK', this)">COPY</button>
+            </div>
+            <div class="wallet-row">
+                <span>SUI:</span>
+                <code>0x5d5664a6f0c2abb2714309af50f9c615bf82134f3897e5b093e593d1188aced5</code>
+                <button onclick="copyToClipboard('0x5d5664a6f0c2abb2714309af50f9c615bf82134f3897e5b093e593d1188aced5', this)">COPY</button>
+            </div>
+        </div>
+
+        <!-- دکمه پروفایل بالا -->
+        <div class="profile-btn" onclick="openProfileModal()">👤</div>
+    </div>
+
+    <!-- مودال ثبت آیدی تلگرام -->
+    <div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <h3>Telegram ID</h3>
+            <p>Enter your ID for listing rewards:</p>
+            <input type="text" id="telegram-id-input" placeholder="@YourID">
+            <button onclick="saveTelegramID()">SAVE</button>
+            <button onclick="closeProfileModal()">CLOSE</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
