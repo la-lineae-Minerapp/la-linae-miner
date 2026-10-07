@@ -1,21 +1,93 @@
-function toggleLang() {
-  alert("Language switch clicked");
+:root {
+  --bg: #0f1219;
+  --card-bg: #181d28;
+  --accent: #00f2fe;
+  --text: #ffffff;
 }
 
-function walletConnect() {
-  alert("TON Wallet connecting...");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-function switchView(viewId) {
-  const sections = document.querySelectorAll('.view-section');
-  sections.forEach(sec => sec.style.display = 'none');
-  
-  const target = document.getElementById('view-' + viewId);
-  if (target) {
-    target.style.display = 'block';
-  }
+.app-container {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  max-height: 850px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
-function upgradeElevator() {
-  alert("Elevator upgrade requested");
+.header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 12px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.coin-logo {
+  width: 120px;
+  height: 120px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  display: block;
+  object-fit: cover;
+}
+
+.nav-bar {
+  display: flex;
+  background: var(--card-bg);
+  padding: 10px;
+  justify-content: space-around;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 12px;
+  cursor: pointer;
 }
