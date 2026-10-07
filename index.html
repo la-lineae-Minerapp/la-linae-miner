@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lineae Mini App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <div><strong>La Lineae:</strong> <span id="balance">15.50</span></div>
+            <button class="action-btn" onclick="toggleLang()" id="lang-btn">RU / EN</button>
+        </div>
+        <div class="content">
+            <div class="view-section" id="view-landing">
+                <div class="card" style="text-align: center;">
+                    <img src="https://i.postimg.cc/nrb7p26m/grok-1789933887166.jpg" alt="Logo" class="coin-logo">
+                    <h3 style="color: #fff; margin: 10px 0;">Listing Countdown</h3>
+                    <div id="countdown-timer" style="font-size: 22px; font-weight: bold; color: var(--accent);">77d 23h 59m 59s</div>
+                </div>
+                <button class="primary-btn" onclick="switchView('main')">Enter Mining Base 🚀</button>
+            </div>
+            <div class="view-section" id="view-main" style="display: none;">
+                <div class="card">
+                    <h3>🛗 Elevator System</h3>
+                    <p style="color: #aaa; font-size: 13px;">Level: <span id="elevator-lvl">1</span></p>
+                    <button class="primary-btn" onclick="upgradeElevator()">Upgrade Level</button>
+                </div>
+            </div>
+            <div class="view-section" id="view-leaderboard" style="display: none;">
+                <div class="card">
+                    <h3>🏆 Leaderboard</h3>
+                    <p style="color: #aaa;">1. King La - 54,200 L</p>
+                </div>
+            </div>
+            <div class="view-section" id="view-rules" style="display: none;">
+                <div class="card">
+                    <h3>📜 Rules</h3>
+                    <p style="color: #ccc; font-size: 13px;">Elevator: Up to 500 levels, costs 1 La Lineae per level.</p>
+                </div>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <button class="nav-item" onclick="switchView('landing')">🌐 Home</button>
+            <button class="nav-item" onclick="switchView('main')">⛏️ Mine</button>
+            <button class="nav-item" onclick="switchView('leaderboard')">🏆 Top</button>
+            <button class="nav-item" onclick="switchView('rules')">📜 Rules</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
