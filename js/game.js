@@ -19,7 +19,7 @@ let jackpotText, gemText, tokenText;
 
 function preload() {
   this.load.image('main', 'grok_1791385372349.jpg');
-  this.load.image('jackpot', 'grok_1791388357235.jpg');
+  this.load.image('jackpot', 'grok_1791398905218.jpg');
   this.load.image('bars', 'grok_1791388346534.jpg');
   this.load.image('menu', 'grok_1791388801596.jpg');
   this.load.image('avatar', 'grok_1791388341279.jpg');
