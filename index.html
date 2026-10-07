@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lineae - Island Miners</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="game-body" class="day-mode">
+
+    <header class="game-header">
+        <div class="logo">ISLAND MINERS</div>
+        <div class="user-profile" onclick="openProfileModal()">
+            <span id="profile-status-icon">👤</span>
+        </div>
+    </header>
+
+    <div class="jackpot-widget">
+        <div class="jackpot-title">Daily Jackpot</div>
+        <div class="jackpot-amount" id="jackpot-counter">0 GEM</div>
+        <div class="jackpot-timer" id="jackpot-timer">24:00:00</div>
+    </div>
+
+    <main class="tower-container">
+        <div class="miner-floor" data-level="12">
+            <div class="floor-info">12 - Trench Token</div>
+            <div class="miner-machine"></div>
+        </div>
+    </main>
+
+    <footer class="exchange-floor">
+        <div class="exchange-title">Live Exchange (Rate: 0.50$)</div>
+        <div class="rates-board">
+            <span>USDT: <b id="rate-usdt">1.00</b></span>
+            <span>TON: <b id="rate-ton">5.20</b></span>
+            <span>SUI: <b id="rate-sui">1.80</b></span>
+        </div>
+
+        <div class="wallet-addresses">
+            <div class="wallet-box">
+                <span>USDT (TRC20):</span>
+                <code>TC3PdXe5dD1rxBeUsF84QCpsPR9cPGsnsU</code>
+                <button onclick="copyToClipboard('TC3PdXe5dD1rxBeUsF84QCpsPR9cPGsnsU', this)">COPY</button>
+            </div>
+            <div class="wallet-box">
+                <span>TON:</span>
+                <code>UQAs7GN-XXXQTdiIckg4cIOeEeWEjFvhCvy3QjDem2u-dAWK</code>
+                <button onclick="copyToClipboard('UQAs7GN-XXXQTdiIckg4cIOeEeWEjFvhCvy3QjDem2u-dAWK', this)">COPY</button>
+            </div>
+            <div class="wallet-box">
+                <span>SUI / EVM:</span>
+                <code>0x5d5664a6f0c2abb2714309af50f9c615bf82134f3897e5b093e593d1188aced5</code>
+                <button onclick="copyToClipboard('0x5d5664a6f0c2abb2714309af50f9c615bf82134f3897e5b093e593d1188aced5', this)">COPY</button>
+            </div>
+        </div>
+    </footer>
+
+    <div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <h3>Profile Settings</h3>
+            <p>Enter your Telegram ID for listing rewards:</p>
+            <input type="text" id="telegram-id-input" placeholder="@YourTelegramID">
+            <button onclick="saveTelegramID()">SAVE</button>
+            <button onclick="closeProfileModal()">CLOSE</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
