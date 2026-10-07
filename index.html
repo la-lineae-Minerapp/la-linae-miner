@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Linea Miner</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0d1117;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 480px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            font-size: 13px;
+        }
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .main-layout {
+            display: flex;
+            gap: 6px;
+            align-items: flex-start;
+        }
+        .elevator-box {
+            flex: 0 0 85px;
+            background: #161b22;
+            border: 1px solid #3a86ff;
+            border-radius: 8px;
+            padding: 6px;
+            text-align: center;
+        }
+        .floors-box {
+            flex: 1;
+            max-height: 340px;
+            overflow-y: auto;
+        }
+        .floor-card {
+            background: #151a23;
+            border: 1px solid #2a3447;
+            border-radius: 8px;
+            padding: 6px 8px;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-around;
+            background: #161b22;
+            border-top: 1px solid #30363d;
+            padding: 8px 0;
+        }
+        .nav-item {
+            background: none;
+            border: none;
+            color: #8b949e;
+            font-size: 11px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="header">
+            <span>💎 Vault: <span id="balance">15.50</span> L</span>
+            <span id="time-indicator" style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; font-size: 11px;">☀️ Day</span>
+            <button onclick="toggleLang()" style="background: #21262d; color: #c9d1d9; border: 1px solid #30363d; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;" id="lang-btn">RU / EN</button>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Island Surface -->
+            <div id="island-card" class="card" style="transition: background 1s ease;">
+                <div style="font-size: 22px;" id="island-icon">🌴🌊☀️</div>
+                <h4 style="margin: 4px 0; color: #fff;">Natural Island Surface</h4>
+                <div id="environment-desc" style="font-size: 10px; color: #e0e0e0;">Sunlit beaches & gentle ocean breeze</div>
+                <div id="countdown-timer" style="font-size: 12px; color: #ffd700; margin-top: 4px; font-weight: bold;">Listing: 77d 23h</div>
+            </div>
+
+            <!-- Mine Layout -->
+            <div class="main-layout">
+                <!-- Elevator -->
+                <div class="elevator-box">
+                    <div style="font-size: 10px; font-weight: bold; color: #3a86ff; margin-bottom: 2px;">🛗 ELEVATOR</div>
+                    <div style="font-size: 18px; margin: 10px 0;">🛒⬆️</div>
+                    <div style="font-size: 9px; color: #aaa;">Lvl <span id="elevator-lvl">1</span></div>
+                    <button onclick="upgradeElevator()" style="width: 100%; background: #238636; color: white; border: none; border-radius: 4px; padding: 4px; font-size: 9px; margin-top: 4px; cursor: pointer; font-weight: bold;">Up (10L)</button>
+                </div>
+
+                <!-- Floors Container -->
+                <div class="floors-box" id="floors-container">
+                    <!-- JavaScript will fill this -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="nav-bar">
+            <button class="nav-item">🌐 Home</button>
+            <button class="nav-item" style="color: #58a6ff;">⛏️ Mine</button>
+            <button class="nav-item">🏆 Top</button>
+            <button class="nav-item">📜 Rules</button>
+        </div>
+    </div>
+
+    <script>
+        let balance = 15.50;
+        let elevatorLevel = 1;
+        let floorLevels = Array(13).fill(1);
+
+        function updateDayNightCycle() {
+            const hour = new Date().getHours();
+            const islandCard = document.getElementById('island-card');
+            const timeIndicator = document.getElementById('time-indicator');
+            const envDesc = document.getElementById('environment-desc');
+            const islandIcon = document.getElementById('island-icon');
+            if (!islandCard) return;
+
+            const isDay = hour >= 6 && hour < 19;
+            if (isDay) {
+                islandCard.style.background = "linear-gradient(to bottom, #2980b9, #6dd5fa)";
+                timeIndicator.innerHTML = `☀️ Day (${hour}:00)`;
+                envDesc.innerHTML = "Sunlit beaches, crystal water & palm trees";
+                islandIcon.innerHTML = "🌴🌊☀️";
+            } else {
+                islandCard.style.background = "linear-gradient(to bottom, #0f2027, #203a43)";
+                timeIndicator.innerHTML = `🌙 Night (${hour}:00)`;
+                envDesc.innerHTML = "Starlit sky, moonlight glow over ocean waves";
+                islandIcon.innerHTML = "🌴🌊🌙✨";
+            }
+        }
+
+        function renderFloors() {
+            const container = document.getElementById('floors-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            for (let i = 1; i <= 12; i++) {
+                let div = document.createElement('div');
+                div.className = 'floor-card';
+                div.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                        <div style="font-size: 18px; background: rgba(58, 134, 255, 0.1); padding: 3px; border-radius: 4px;">💻👩‍💻⛏️</div>
+                        <div>
+                            <div style="font-size: 11px; font-weight: bold; color: #fff;">Floor ${i}: Miner & Girl</div>
+                            <div style="font-size: 9px; color: #aaa;">Prod: +${(i * 0.3 * floorLevels[i]).toFixed(1)} L/m</div>
+                        </div>
+                    </div>
+                    <button onclick="upgradeFloor(${i})" style="background: #3a86ff; color: #fff; border: none; border-radius: 4px; padding: 4px 6px; font-size: 9px; cursor: pointer; font-weight: bold;">
+                        Lvl ${floorLevels[i]}<br><span style="font-size: 7px; color: #ddd;">(${i * 5}L)</span>
+                    </button>
+                `;
+                container.appendChild(div);
+            }
+        }
+
+        function upgradeFloor(floorNum) {
+            let cost = floorNum * 5;
+            if (balance >= cost) {
+                balance -= cost;
+                floorLevels[floorNum]++;
+                document.getElementById('balance').innerText = balance.toFixed(2);
+                renderFloors();
+            } else {
+                alert("Not enough coins!");
+            }
+        }
+
+        function upgradeElevator() {
+            let cost = elevatorLevel * 10;
+            if (balance >= cost) {
+                balance -= cost;
+                elevatorLevel++;
+                document.getElementById('elevator-lvl').innerText = elevatorLevel;
+                document.getElementById('balance').innerText = balance.toFixed(2);
+            } else {
+                alert("Not enough coins for elevator!");
+            }
+        }
+
+        let currentLang = 'EN';
+        function toggleLang() {
+            currentLang = currentLang === 'EN' ? 'RU' : 'EN';
+            document.getElementById('lang-btn').innerText = currentLang + " / " + (currentLang === 'EN' ? 'RU' : 'EN');
+        }
+
+        // Run on load
+        window.onload = function() {
+            renderFloors();
+            updateDayNightCycle();
+        };
+
+        // Production loop
+        setInterval(() => {
+            let totalProd = 0;
+            for (let i = 1; i <= 12; i++) {
+                totalProd += (i * 0.05 * floorLevels[i] * elevatorLevel);
+            }
+            balance += totalProd;
+            const bEl = document.getElementById('balance');
+            if (bEl) bEl.innerText = balance.toFixed(2);
+        }, 2000);
+    </script>
+</body>
+</html>
