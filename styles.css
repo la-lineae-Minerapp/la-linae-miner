@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #0b0e14;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    max-height: 850px;
+    background: linear-gradient(135deg, #121824 0%, #070a0f 100%);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.token-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.token-name {
+    font-size: 11px;
+    color: #8a9ba8;
+    letter-spacing: 1px;
+}
+
+.token-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #00ffcc;
+}
+
+.user-status {
+    font-size: 12px;
+    background: rgba(0, 255, 204, 0.1);
+    color: #00ffcc;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.view-section {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+}
+
+.view-section.active {
+    display: flex;
+}
+
+.stats-card {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.stat-box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-label {
+    display: block;
+    font-size: 11px;
+    color: #8a9ba8;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mining-arena {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tap-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #00ffcc 0%, #007766 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.4);
+    transition: transform 0.1s ease;
+    user-select: none;
+}
+
+.tap-circle:active {
+    transform: scale(0.95);
+}
+
+.inner-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: #0b0e14;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#tapText {
+    font-weight: bold;
+    color: #00ffcc;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.action-btn {
+    background: #00ffcc;
+    color: #0b0e14;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: opacity 0.2s;
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+}
+
+.action-btn.disabled {
+    background: #333;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.island-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.island-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.island-info p {
+    font-size: 12px;
+    color: #8a9ba8;
+}
+
+.buy-island-btn {
+    background: transparent;
+    border: 1px solid #00ffcc;
+    color: #00ffcc;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.wallet-box, .airdrop-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.wallet-box span {
+    display: block;
+    margin: 10px 0;
+    color: #00ffcc;
+    font-family: monospace;
+    word-break: break-all;
+}
+
+.nav-bar {
+    display: flex;
+    background: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-item {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #8a9ba8;
+    padding: 15px 0;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.nav-item.active {
+    color: #00ffcc;
+    border-top: 2px solid #00ffcc;
+}
